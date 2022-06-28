@@ -7,3 +7,9 @@ body{
 .vertical-offset-100{
     padding-top:150px;
 }
+
+.rec {
+    margin-top: 25px;
+    font-size: 12px;
+    text-align: center;
+}

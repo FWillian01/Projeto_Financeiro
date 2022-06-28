@@ -25,10 +25,11 @@ if ($total_reg > 0){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/estilo_login.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/estilo_login.css">
+   
 
     
 
@@ -51,13 +52,10 @@ if ($total_reg > 0){
 			    		<div class="form-group">
 			    			<input class="form-control" placeholder="Password" name="password" type="password" value="">
 			    		</div>
-			    		<!-- <div class="checkbox">
-			    	    	<label>
-			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
-			    	    	</label>
-			    	    </div> -->
 			    		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
 			    	</fieldset>
+
+					<p class="rec"><a href="#">Recuperar Senha</a></p>
 			      	</form>
 			    </div>
 			</div>
