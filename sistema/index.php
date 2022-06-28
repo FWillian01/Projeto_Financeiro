@@ -5,7 +5,7 @@ require_once("conexao.php");
 $senha = '123';
 $senha_crip = md5($senha);
 
-$query = $pdo->query("SELECT * from usuarios where email = 'Administrador'");
+$query = $pdo->query("SELECT * from usuarios where nivel = 'Administrador'");
 $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = @count($res);
 if ($total_reg > 0){
