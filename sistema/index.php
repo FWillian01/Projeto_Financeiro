@@ -12,7 +12,7 @@ if ($total_reg > 0){
 	echo 'tem mais registros' . $total_reg;
 }else {
 	$pdo->query("INSERT INTO usuarios SET nome = 'Melissa Ferrete', email = '$email_sistema', cpf = '000.000.000-00', senha = '$senha', senha_crip = 
-'$senha_crip', nivel = 'Administrador', data = curDate(), ativo = 'Sim'");
+'$senha_crip', nivel = 'Administrador', data = curDate(), ativo = 'Sim', foto = 'sem-foto.jpg'");
 }
 
 
@@ -75,53 +75,59 @@ if ($total_reg > 0){
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Recuperar Senha</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -20px">
+        <button id="btn_fechar_rec" type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -20px">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-	  <form method="post" id="form-recuperar">
+	  <form method="post" id="form_recuperar">
       <div class="modal-body">
-			<input placeholder="Digite o seu Email" class="form-control" type="email" name="email" required>
 
-			<div id="msg-recuperar"></div>
+			<input placeholder="Digite o seu Email" class="form-control" type="email" name="email" id ="email_recuperar" required>
+
+			<div id="mensagem_recuperar"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Recuperar</button>
+        <button type="submit" class="btn btn-primary">Recuperar</button>
       </div>
 	  </form>
     </div>
   </div>
 </div>
 
+<!-- Ajax para funcionar Mascaras JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script> 
+
+<!-- Mascaras JS -->
+<script type="text/javascript" src="js/mascaras.js"></script>
+
+<!-- Ajax para inserir ou editar dados -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-	$("#form-recuperar").submit(function () {
+	$("#form_recuperar").submit(function () {
 
-		$("#form-recuperar").text('mensagem')
 
 		event.preventDefault();
 		var formData = new FormData(this);
 
 		$.ajax({
-			url: "cadastro.php",
+			url: "recuperar_senha.php",
 			type: 'POST',
 			data: formData,
 
 			success: function (mensagem) {
-				$('#mensagem-cadastro').text('');
-				$('#mensagem-cadastro').removeClass()
-				if (mensagem.trim() == "Cadastrado com Sucesso") {
-					//$('#btn-fechar-usu').click();
-					$('#mensagem-cadastro').addClass('text-success')
-					$('#mensagem-cadastro').text(mensagem)	
-					$('#usuario').val($('#email_cadastro').val())
-					$('#senha').val($('#senha_cadastro').val())				
+				$('#mensagem_recuperar').text('');
+				$('#mensagem_recuperar').removeClass()
+				if (mensagem.trim() == "Recuperado com Sucesso") {
+					// $('#btn_fechar_rec').click();
+					$('#email_recuperar').val('');
+					$('#mensagem_recuperar').addClass('text-danger')
+					$('#mensagem_recuperar').text('Sua Senha foi enviada para o Email')				
 
 				} else {
 
-					$('#mensagem-cadastro').addClass('text-danger')
-					$('#mensagem-cadastro').text(mensagem)
+					$('#mensagem_recuperar').addClass('text-danger')
+					$('#mensagem_recuperar').text(mensagem)
 				}
 
 
@@ -137,6 +143,3 @@ if ($total_reg > 0){
 </script>
 
 
-<script type="text-javascript">
-
-</script>

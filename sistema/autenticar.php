@@ -21,7 +21,7 @@ $total_reg = count($res);
         echo "<script>window.location='painel'</script>";
         
     }else {
-        echo "<script>window.alert('Seu usuario foi desativado, contate o administrador!')</script>";
+        echo "<script>window.a'lert('Seu usuario foi desativado, contate o administrador!')</script>";
         echo "<script>window.location='index.php'</script>";
     }
 
